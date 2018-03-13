@@ -947,78 +947,7 @@ ul.wmuSliderPagination {
     padding:9.5em 0 0 !important;
 }
 /*-- //new-products --*/
-/*-- banner-bottom1 --*/
-.agileinfo_banner_bottom1_grid_left{
-	background:url(../images/44.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.agileinfo_banner_bottom1_grid_left,.agileinfo_banner_bottom1_grid_right{
-	padding:0;
-}
-.agileinfo_banner_bottom1_grid_left{
-	text-align: right;
-	padding: 6em 5em 0 0;
-}
-.agileinfo_banner_bottom1_grid_left h3{
-	font-size: 14px;
-    color: #212121;
-    text-transform: capitalize;
-	margin-bottom:4em;
-}
-.agileinfo_banner_bottom1_grid_left h3 span{
-	display: block;
-    font-size: 3em;
-    font-weight: 700;
-    margin: .5em 1em 0 0;
-    color: #82b1ff;
-}
-.agileinfo_banner_bottom1_grid_left h3 span i{
-	color:#212121;
-}
-.agileinfo_banner_bottom1_grid_left a,.team-bottom a{
-	text-align: right;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1em;
-    letter-spacing: 2px;
-    color: #82b1ff;
-    background: url(../images/img-sp.png) no-repeat 112px -4px;
-    padding: 0 45px 0 0;
-}
-.agileinfo_banner_bottom1_grid_left a:hover,.team-bottom a:hover{
-	color:#212121;
-	background:url(../images/img-sp.png) no-repeat 112px -38px;
-}
-.agileinfo_banner_bottom1_grid_right{
-	background:url(../images/45.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.agileinfo_banner_bottom1_grid_left,.agileinfo_banner_bottom1_grid_right{
-	min-height:400px;
-}
-.agileinfo_banner_bottom1_grid_right{
-	text-align:center;
-	padding:8em 0 0;
-}
-.agileinfo_banner_bottom1_grid_right h4{
-	padding: .3em .5em;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1em;
-    letter-spacing: 2px;
-    background: #212121;
-    width: 20%;
-    margin: 0 auto;
-	border: 1px solid;
-}
+
 /* -- timer -- */
 .timer_wrap{
 	width:92%;
