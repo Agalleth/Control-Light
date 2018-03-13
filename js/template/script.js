@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
 
+/*---carrusel---*/
+$('.carousel').carousel()
 
 	/* ---- Countdown timer ---- */
 
