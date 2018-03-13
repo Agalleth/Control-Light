@@ -146,8 +146,8 @@ function getBodies(data) {
 
 }
 
-function addToCart(id) {
-    console.log(id);
+function addToCart(data) {
+    console.log(data);
     // let carritoStorage = localStorage.getItem("products");
     // let cartIds;
     // if (carritoStorage === null) {
@@ -160,7 +160,8 @@ function addToCart(id) {
     // localStorage.setItem("products", JSON.stringify(cartIds));
     
   }
-
+  
+  addToCart(id)
 
 // `<div class="checkout-right">
 // <table class="timetable_sub">
