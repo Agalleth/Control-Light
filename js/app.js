@@ -1,13 +1,14 @@
 const containerPorductsML = document.getElementById('productsML');
 const containerOtherPorductsML = document.getElementById('productsBodiesML');
-
+const productsTotal = document.getElementById('products');
+const buyProducts = document.getElementById('productsBuy');
 
 fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log('Request successful', data);
+        console.log('Request successful');
         getUnderware(data)
     })
     .catch(function (error) {
@@ -78,7 +79,7 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=bodies`)
         return response.json();
     })
     .then(function (data) {
-        console.log('Request successful', data);
+        console.log('Request successful');
         getBodies(data);
     })
     .catch(function (error) {
@@ -144,6 +145,21 @@ function getBodies(data) {
     });
 
 }
+
+function addToCart(id) {
+    console.log(id);
+    // let carritoStorage = localStorage.getItem("products");
+    // let cartIds;
+    // if (carritoStorage === null) {
+    //   cartIds = [];
+    // } else {
+    //   cartIds = JSON.parse(carritoStorage);
+    // }
+    // cartIds.push(id);
+    // console.log(cartIds);
+    // localStorage.setItem("products", JSON.stringify(cartIds));
+    
+  }
 
 
 // `<div class="checkout-right">
