@@ -19,6 +19,7 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
         // console.log(id);
         let productHTML = createProductHTML(element,id,price);
     })
+
 });
 
 function createProductHTML(element,id,price) {
@@ -64,7 +65,12 @@ function createProductHTML(element,id,price) {
             // return containerPorductsML;
 
 
-        }
+
+    
+
+
+    });
+
 
 // let localStorageProduct = localStorage.setItem('productsTotal', JSON.stringify(id));
 // let infoPrice = localStorage.getItem('productsTotal');
@@ -242,6 +248,7 @@ const addToCartOne = ((id,price) => {
 
 //     console.log(idUnderWare, titleUnderWare, priceUnderWare, pictureUnderWare);
 
+
     // let carritoStorage = localStorage.getItem(productsTotal);
     // console.log(carritoStorage);
     // let cartIds;
@@ -254,7 +261,6 @@ const addToCartOne = ((id,price) => {
     // console.log(cartIds);
     // localStorage.setItem(productsTotal, JSON.stringify(cartIds));
 
-// }
 
 
 // `<div class="checkout-right">
@@ -293,7 +299,6 @@ const addToCartOne = ((id,price) => {
 //     </tr>
 // </table>
 // </div>`
-
 
 
 
@@ -358,4 +363,5 @@ const addToCartOne = ((id,price) => {
 // firebase.database().ref("user/" + usuario.uid).set(usuario);
 
 // $('#photo').attr('src', usuario.photoURL);
+
 
