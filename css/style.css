@@ -4251,6 +4251,6 @@ td.invert-image a img {
 	}
 }
 .img-responsive{
-  width: 40vw;
-  height: 37vh;
+  width: 100vw;
+  height: 60vh;
 }
