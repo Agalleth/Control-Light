@@ -16,7 +16,7 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
     });
 
 
-function  getUnderware(data) {
+function getUnderware(data) {
     let template = ``;
     const underWare = data.results;
     // console.log(underWare);
@@ -31,9 +31,9 @@ function  getUnderware(data) {
         const pictureUnderWare = element.thumbnail;
         // console.log(pictureUnderWare);
 
-    template +=
+        template +=
 
-        ` <div id="myTabContent" class="tab-content">
+            ` <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
             <div class="agile_ecommerce_tabs">
                 <div class="col-md-4 agile_ecommerce_tab_left">
@@ -60,16 +60,16 @@ function  getUnderware(data) {
                             </span>
                             <i class="item_price">$ ${priceUnderWare}</i>
                         </p>
-                        <p>
-                            <a class="item_add" href="#">Agregar</a>
-                        </p>
+                        <button data-results-id=${element.id}
+                        onclick='addToCart(${element.id})'
+                        class='btn item_add'>Agregar a carrito</button>
                     </div>
                 </div> `
 
 
-    containerPorductsML.innerHTML = template;
+        containerPorductsML.innerHTML = template;
 
-    addToCart(idUnderWare,titleUnderWare,priceUnderWare,pictureUnderWare)
+        addToCart(idUnderWare, titleUnderWare, priceUnderWare, pictureUnderWare)
     });
 }
 
@@ -103,9 +103,9 @@ function getBodies(data) {
         const pictureBodies = element.thumbnail;
         // console.log(pictureBodies);
 
-    templateTwo +=
+        templateTwo +=
 
-        ` <div id="myTabContent" class="tab-content">
+            ` <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
             <div class="agile_ecommerce_tabs">
                 <div class="col-md-4 agile_ecommerce_tab_left">
@@ -132,25 +132,25 @@ function getBodies(data) {
                             </span>
                             <i class="item_price">$ ${priceBodies}</i>
                         </p>
-                        <p>
-                            <a class="item_add" href="#">Agregar</a>
-                        </p>
+                        <button data-results-id=${element.id}
+                        onclick='addToCart(${element.id})'
+                        class='btn item_add'>Agregar a carrito</button>
                     </div>
                 </div>`
 
 
         containerOtherPorductsML.innerHTML = templateTwo;
 
-        
+
     });
 
 }
 
-function addToCart(data) {
-    console.log(data);
+function addToCart(idUnderWare, titleUnderWare, priceUnderWare, pictureUnderWare) {
+    // console.log(data);
 
-//     console.log(idUnderWare,titleUnderWare,priceUnderWare,pictureUnderWare);
-    
+    console.log(idUnderWare, titleUnderWare, priceUnderWare, pictureUnderWare);
+
     // let carritoStorage = localStorage.getItem(productsTotal);
     // console.log(carritoStorage);
     // let cartIds;
@@ -162,8 +162,8 @@ function addToCart(data) {
     // cartIds.push(id);
     // console.log(cartIds);
     // localStorage.setItem(productsTotal, JSON.stringify(cartIds));
-    
-  }
+
+}
 
 
 // `<div class="checkout-right">
@@ -204,64 +204,64 @@ function addToCart(data) {
 // </div>`
 
 
-  
 
-  const login = document.getElementById('login')
 
-  var provider = new firebase.auth.GoogleAuthProvider();
+const login = document.getElementById('login')
+
+var provider = new firebase.auth.GoogleAuthProvider();
 //login
-login.click(function() {
- firebase.auth()
-   .signInWithPopup(provider)
-   .then(function(result){
-     var token = result.credential.accesToken;
-     var usuario = result.user;
-     console.log(result);
-     console.log(usuario);
-     guardaDatos(usuario);
+login.click(function () {
+    firebase.auth()
+        .signInWithPopup(provider)
+        .then(function (result) {
+            var token = result.credential.accesToken;
+            var usuario = result.user;
+            console.log(result);
+            console.log(usuario);
+            guardaDatos(usuario);
 
-     localStorage.setItem('usuario', JSON.stringify(usuario))
-     window.location.href = 'index.html';
+            localStorage.setItem('usuario', JSON.stringify(usuario))
+            window.location.href = 'index.html';
 
 
-   }).catch(function(error){
-     console.log(error);
-     var errorCode = error.code;
-      console.log(errorCode);
-      var errorMessage = error.message;
-      console.log(errorMessage);
-      // The email of the user's account used.
-      var email = error.email;
-      console.log(email);
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      console.log(credential);
-   });
+        }).catch(function (error) {
+            console.log(error);
+            var errorCode = error.code;
+            console.log(errorCode);
+            var errorMessage = error.message;
+            console.log(errorMessage);
+            // The email of the user's account used.
+            var email = error.email;
+            console.log(email);
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            console.log(credential);
+        });
 
 });
 
 //Guardar datos automaticamente
-function guardaDatos (user){
- var usuario = {
-   uid:user.uid,
-   nombre:user.displayName,
-   email:user.email,
-   foto:user.photoURL
- };
- firebase.database().ref("Control light/" + user.uid)
- .set(usuario)
+function guardaDatos(user) {
+    var usuario = {
+        uid: user.uid,
+        nombre: user.displayName,
+        email: user.email,
+        foto: user.photoURL
+    };
+    firebase.database().ref("Control light/" + user.uid)
+        .set(usuario)
 };
 
 
 //leyendo de la base de guardaDatos
 firebase.database().ref("Control light")
-.on("child_added", function(s){
- var user = s.val();
+    .on("child_added", function (s) {
+        var user = s.val();
 
-});
+    });
 
 var usuario = localStorage.getItem('usuario');
-usuario= JSON.parse(usuario)
+usuario = JSON.parse(usuario)
 
 
 firebase.database().ref("user/" + usuario.uid).set(usuario);
