@@ -199,3 +199,89 @@ function addToCart(data) {
 //     </tr>
 // </table>
 // </div>`
+// pintandoseccion de nuevos productos
+const drawProducts = (data) => {
+    conosole.log(data);
+    let products = data.products;
+    let productsContainer = document.getElementById("products-container");
+    products.forEach((product, index) => {
+      let productsHtml = createProductHTML(product);
+      productsContainer.appendChild(productsHtml);
+    });
+  }
+  
+    function createProductHTML(product) {
+      let template = `<div class="agileinfo_new_products_grids">
+                  <div class="col-md-4 agileinfo_new_products_grid">
+                      <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+                          <div class="hs-wrapper hs-wrapper1">
+                              <img src='${product.imageUrl}' alt='blusa'/>
+                              <div class="w3_hs_bottom w3_hs_bottom_sub">
+                                  <ul>
+                                      <li>
+                                          <a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <h5>Blusa</h5>
+                          <div class="simpleCart_shelfItem">
+                              <p><i class='${products.price}'></i></p>
+                              <p><a class="item_add" href="#">Add to cart</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="clearfix"> </div>
+              </div>
+          </div>
+      </div>`
+}
+drawProducts(data);      
+    
+      // inicia sesion con facebook.
+    
+      var provider = new firebase.auth.FacebookAuthProvider();
+    
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    
+      firebase.auth().signInWithRedirect(provider);
+    
+      firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          // ...
+        }
+        // The signed-in user info.
+        var user = result.user;
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
