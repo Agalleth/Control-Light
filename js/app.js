@@ -61,7 +61,7 @@ function  getUnderware(data) {
                             <i class="item_price">$ ${priceUnderWare}</i>
                         </p>
                         <p>
-                            <a class="item_add" href="#">Add to cart</a>
+                            <a class="item_add" href="#">Agregar</a>
                         </p>
                     </div>
                 </div> `
@@ -69,7 +69,7 @@ function  getUnderware(data) {
 
     containerPorductsML.innerHTML = template;
 
-        
+    addToCart(idUnderWare,titleUnderWare,priceUnderWare,pictureUnderWare)
     });
 }
 
@@ -88,7 +88,7 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=bodies`)
 
 
 function getBodies(data) {
-    console.log(data.results);
+    // console.log(data.results);
     let templateTwo = ``;
     const bodies = data.results;
     // console.log(underWare);
@@ -133,7 +133,7 @@ function getBodies(data) {
                             <i class="item_price">$ ${priceBodies}</i>
                         </p>
                         <p>
-                            <a class="item_add" href="#">Add to cart</a>
+                            <a class="item_add" href="#">Agregar</a>
                         </p>
                     </div>
                 </div>`
@@ -148,7 +148,11 @@ function getBodies(data) {
 
 function addToCart(data) {
     console.log(data);
-    // let carritoStorage = localStorage.getItem("products");
+
+//     console.log(idUnderWare,titleUnderWare,priceUnderWare,pictureUnderWare);
+    
+    // let carritoStorage = localStorage.getItem(productsTotal);
+    // console.log(carritoStorage);
     // let cartIds;
     // if (carritoStorage === null) {
     //   cartIds = [];
@@ -157,11 +161,10 @@ function addToCart(data) {
     // }
     // cartIds.push(id);
     // console.log(cartIds);
-    // localStorage.setItem("products", JSON.stringify(cartIds));
+    // localStorage.setItem(productsTotal, JSON.stringify(cartIds));
     
   }
-  
-  addToCart(id)
+
 
 // `<div class="checkout-right">
 // <table class="timetable_sub">
@@ -199,89 +202,68 @@ function addToCart(data) {
 //     </tr>
 // </table>
 // </div>`
-// pintandoseccion de nuevos productos
-const drawProducts = (data) => {
-    conosole.log(data);
-    let products = data.products;
-    let productsContainer = document.getElementById("products-container");
-    products.forEach((product, index) => {
-      let productsHtml = createProductHTML(product);
-      productsContainer.appendChild(productsHtml);
-    });
-  }
+
+
   
-    function createProductHTML(product) {
-      let template = `<div class="agileinfo_new_products_grids">
-                  <div class="col-md-4 agileinfo_new_products_grid">
-                      <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                          <div class="hs-wrapper hs-wrapper1">
-                              <img src='${product.imageUrl}' alt='blusa'/>
-                              <div class="w3_hs_bottom w3_hs_bottom_sub">
-                                  <ul>
-                                      <li>
-                                          <a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <h5>Blusa</h5>
-                          <div class="simpleCart_shelfItem">
-                              <p><i class='${products.price}'></i></p>
-                              <p><a class="item_add" href="#">Add to cart</a></p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="clearfix"> </div>
-              </div>
-          </div>
-      </div>`
-}
-drawProducts(data);      
-    
-      // inicia sesion con facebook.
-    
-      var provider = new firebase.auth.FacebookAuthProvider();
-    
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
-    
-      firebase.auth().signInWithRedirect(provider);
-    
-      firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          var token = result.credential.accessToken;
-          // ...
-        }
-        // The signed-in user info.
-        var user = result.user;
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
-    
-      firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-      }).catch(function(error) {
-        // An error happened.
-      });
+
+  const login = document.getElementById('login')
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+//login
+login.click(function() {
+ firebase.auth()
+   .signInWithPopup(provider)
+   .then(function(result){
+     var token = result.credential.accesToken;
+     var usuario = result.user;
+     console.log(result);
+     console.log(usuario);
+     guardaDatos(usuario);
+
+     localStorage.setItem('usuario', JSON.stringify(usuario))
+     window.location.href = 'index.html';
+
+
+   }).catch(function(error){
+     console.log(error);
+     var errorCode = error.code;
+      console.log(errorCode);
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      // The email of the user's account used.
+      var email = error.email;
+      console.log(email);
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      console.log(credential);
+   });
+
+});
+
+//Guardar datos automaticamente
+function guardaDatos (user){
+ var usuario = {
+   uid:user.uid,
+   nombre:user.displayName,
+   email:user.email,
+   foto:user.photoURL
+ };
+ firebase.database().ref("Control light/" + user.uid)
+ .set(usuario)
+};
+
+
+//leyendo de la base de guardaDatos
+firebase.database().ref("Control light")
+.on("child_added", function(s){
+ var user = s.val();
+
+});
+
+var usuario = localStorage.getItem('usuario');
+usuario= JSON.parse(usuario)
+
+
+firebase.database().ref("user/" + usuario.uid).set(usuario);
+
+$('#photo').attr('src', usuario.photoURL);
