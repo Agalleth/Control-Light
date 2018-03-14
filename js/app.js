@@ -34,8 +34,6 @@ function  getUnderware(data) {
     template +=
 
         ` <div id="myTabContent" class="tab-content">
-        <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-            <div class="agile_ecommerce_tabs">
                 <div class="col-md-4 agile_ecommerce_tab_left">
                     <div class="hs-wrapper">
                         <img src="${pictureUnderWare}" alt=" " class="img-responsive" width='100px' />
@@ -44,27 +42,28 @@ function  getUnderware(data) {
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#myModal">
                                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                     </a>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
                     <h5>
                         <a href="single.html">Id: ${idUnderWare}</a>
-                    </h5>
+                     </h5>
                     <h5>
                         <a href="single.html">${titleUnderWare}</a>
-                    </h5>
+                     </h5>
                     <div class="simpleCart_shelfItem">
                         <p>
                             </span>
                             <i class="item_price">$ ${priceUnderWare}</i>
-                        </p>
+                         </p>
                         <p>
-                            <a class="item_add" href="#">Agregar</a>
-                        </p>
-                    </div>
-                </div> `
+                            <buttom class="item_add" href="#">Agregar</button>
+                         </p>
+                     </div>
+                  </div>
+          </div>`
 
 
     containerPorductsML.innerHTML = template;
@@ -141,7 +140,7 @@ function getBodies(data) {
 
         containerOtherPorductsML.innerHTML = templateTwo;
 
-        
+
     });
 
 }
@@ -150,7 +149,7 @@ function addToCart(data) {
     console.log(data);
 
 //     console.log(idUnderWare,titleUnderWare,priceUnderWare,pictureUnderWare);
-    
+
     // let carritoStorage = localStorage.getItem(productsTotal);
     // console.log(carritoStorage);
     // let cartIds;
@@ -162,7 +161,7 @@ function addToCart(data) {
     // cartIds.push(id);
     // console.log(cartIds);
     // localStorage.setItem(productsTotal, JSON.stringify(cartIds));
-    
+
   }
 
 
@@ -204,7 +203,7 @@ function addToCart(data) {
 // </div>`
 
 
-  
+
 
   const login = document.getElementById('login')
 
