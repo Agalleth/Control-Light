@@ -23,6 +23,28 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
 
 function createProductHTML(element, id, price) {
 
+.then(response => {
+    return response.json();
+})
+.then(data => { 
+    console.log('Request successful');
+    let underWare = data.results;
+    underWare.forEach((element,index) => {
+        // console.log(element)
+        // console.log(index)
+        const id = element.id;
+        const price = element.price;
+        // console.log(id);
+        let productHTML = createProductHTML(element,id,price);
+    })
+})
+.catch(error => {
+    console.log('Request failed', error)
+});
+
+function createProductHTML(element,id,price) {
+
+
     let template =
 
         ` <div id="myTabContent" class="tab-content">
@@ -53,12 +75,18 @@ function createProductHTML(element, id, price) {
                         <i class="item_price">$ ${price}</i>
                     </p>
                     <div>
+
                     <button data-id="${id}" data-price="${price}"
+
+
+                    <button data-element=("${id}")
+
                     onclick='addToCartOne()'
                     class='btn item_add'>Agregar a carrito</button>
                     </div>
                 </div>
             </div> `
+
     containerPorductsML.insertAdjacentHTML('beforeEnd', template)
     // return containerPorductsML;
 
@@ -94,5 +122,24 @@ function addToCartOne() {
         // console.log(id);
         drawProducts(price, id)
     })
+
+            containerPorductsML.insertAdjacentHTML('beforeEnd',template)
+            // return containerPorductsML;
+
+
+    };
+
+// let keptIdAndPrice = localStorage.setItem("products", simpleCart_items);
+// console.log(keptIdAndPrice);
+
+function addToCartOne(){
+  console.log(event.target)
+
+// let localStorageProduct = localStorage.setItem('productsTotal', JSON.stringify(id));
+// let infoPrice = localStorage.getItem('productsTotal');
+// console.log(localStorageProduct);
+// console.log(infoPrice);
+
+};
 
 };
