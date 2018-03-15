@@ -8,7 +8,7 @@ var data = {
         color: ['blanco', 'negro' , 'nude' , 'azul Marino','fiusha'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -18,7 +18,7 @@ var data = {
         color: ['blanco', 'negro' , 'nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -28,7 +28,7 @@ var data = {
         color: ['blanco', 'negro'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -38,7 +38,7 @@ var data = {
         color: ['blanco', 'negro'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -48,7 +48,7 @@ var data = {
         color: ['negro' , 'nude', 'gris'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -58,7 +58,7 @@ var data = {
         color: ['negro' , 'nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -68,7 +68,7 @@ var data = {
         color: ['negro' , 'rojo', 'amarillo'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  15% Elastano',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -78,7 +78,7 @@ var data = {
         color: ['negro' , 'rojo', 'amarillo'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodón',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -88,7 +88,7 @@ var data = {
         color: ['negro' , 'rojo', 'amarillo', 'rosa','nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '35% Nylon  12% Elastano y 53% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -98,7 +98,7 @@ var data = {
         color: ['negro/rojo' , 'negro/amarillo', 'blanco/rojo'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -108,7 +108,7 @@ var data = {
         color: ['negro' , 'rojo', 'amarillo','blanco','nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -118,7 +118,7 @@ var data = {
         color: ['negro/plata' , 'negro/oro'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -128,7 +128,7 @@ var data = {
         color: ['negro' , 'rojo', 'amarillo'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -138,7 +138,7 @@ var data = {
         color: ['negro' , 'nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -148,7 +148,7 @@ var data = {
         color: ['negro' , 'nude'],
         talla : ['CH','MED','GDE','XG', 'XPlus'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       },
       {
         imageUrl: "http://dummyimage.com/100x100",
@@ -158,8 +158,7 @@ var data = {
         color: ['negro'],
         talla : ['CH','MED','GDE','XG'],
         composicion: '85% Nylon  12% Elastano y 3% Algodon',
-        stock : 20 
+        stock : 20
       }
     ]
   };
-
