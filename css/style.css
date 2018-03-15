@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	background:	#fff;
+	background:	#e1f5fe;
 	font-family:'Open Sans', sans-serif;
 }
 p{
@@ -513,8 +513,12 @@ ul.multi-column-dropdown h6 {
     border-bottom: 1px solid #82b1ff;
 }
 .agile_ecommerce_tab_left {
-    padding-left: 0;
-	text-align: center;
+  text-align: center;
+  float: left;
+  width: 33%;
+  margin-bottom: 1px;
+  height: 460px;
+  padding-bottom: 5px;
 }
 .agile_ecommerce_tabs {
     padding: 2em 0 0;
@@ -2793,8 +2797,12 @@ td.invert-image a img {
 	}
 	.agile_ecommerce_tab_left {
 		float: left;
-		width: 33.33%;
-	}
+		width: 33%;
+    margin-bottom: 1px;
+    height: 460px;
+    padding-bottom: 5px;
+    text-align: center;
+}
 	.w3_hs_bottom ul, .flex_ecommerce {
 		padding: 6em 0 0;
 	}
@@ -4251,6 +4259,6 @@ td.invert-image a img {
 	}
 }
 .img-responsive{
-  width: 100vw;
-  height: 60vh;
+  width: 40vw;
+  height: 37vh;
 }

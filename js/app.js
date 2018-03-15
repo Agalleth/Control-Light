@@ -1,5 +1,6 @@
 const containerOtherPorductsML = document.getElementById('productsBodiesML');
 let containerPorductsML = document.getElementById('productsML');
+
 fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
     .then(response => {
         return response.json();
@@ -19,12 +20,14 @@ fetch(`https://api.mercadolibre.com/sites/MLM/search?q=ropainterior`)
     .catch(error => {
         console.log('Request failed', error)
     });
+
 function createProductHTML(element, id, price) {
+
     let template =
+
         ` <div id="myTabContent" class="tab-content">
     <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-        <div class="agile_ecommerce_tabs">
-            <div class="col-md-4 agile_ecommerce_tab_left">
+            <div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 agile_ecommerce_tab_left">
                 <div class="hs-wrapper">
                     <img src="${element.thumbnail}" alt=" " class="img-responsive" width='100px' />
                     <div class="w3_hs_bottom">
@@ -54,11 +57,18 @@ function createProductHTML(element, id, price) {
                     class='btn item_add'>Agregar a carrito</button>
                     </div>
                 </div>
-            </div> `
+            </div>
+          </div>
+         `
     containerPorductsML.insertAdjacentHTML('beforeEnd', template)
     // return containerPorductsML;
+
+
 };
+
 let array = [];
+let sumPaypal;
+
 function addToCartOne() {
     let obj = event.target.dataset;
     // console.log(obj);
@@ -66,13 +76,18 @@ function addToCartOne() {
     // console.log(dataId);
     // let dataPrice = event.target.dataset.price;
     // console.log(dataPrice);
+
+
     array.push(obj);
     // console.log(array);
+
     let product = localStorage.setItem("item", JSON.stringify(array))
     // console.log(product);
     let getProduct = localStorage.getItem("item");
     // console.log(getProduct)
+
     array = JSON.parse(getProduct);
+
     const newArr = array.map(element => {
         // console.log(element);
         let price = element.price;
@@ -80,8 +95,56 @@ function addToCartOne() {
         let id = element.id;
         // console.log(id);
         return parseInt(price);
+
     })
-    .reduce((a, b) => a + b, 0);
-    console.log(newArr);
-    
+    sumPaypal = newArr.reduce((a, b) => a + b, 0);
+
+
+    // buttonPaypal(sum);
+    // console.log(num);
 };
+// console.log(sumPaypal);
+
+function buttonPaypal() {
+
+    paypal.Button.render({
+
+        env: 'sandbox', // sandbox | production
+
+        // PayPal Client IDs - replace with your own
+        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+        client: {
+            sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+            production: 'AZ9QqN7g_ufxmmG3HNwkEh5VdWwrsHmO0Y7XrhhBnTIp8dwuuu8AAtw196aZjl-r44W4POGP6DVu8FWK'
+        },
+
+        // Show the buyer a 'Pay Now' button in the checkout flow
+        commit: true,
+
+        // payment() is called when the button is clicked
+        payment: function(data, actions) {
+
+            // Make a call to the REST api to create the payment
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '0.01', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+
+        // onAuthorize() is called when the buyer approves the payment
+        onAuthorize: function(data, actions) {
+
+            // Make a call to the REST api to execute the payment
+            return actions.payment.execute().then(function() {
+                window.alert('Payment Complete!');
+            });
+        }
+
+    }, '#paypal-button-container');
+
+}
